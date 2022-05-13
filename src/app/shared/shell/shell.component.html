@@ -37,7 +37,13 @@
         <a mat-button routerLink="/kanban">🍱 Kanban Demo</a>
         <a mat-button routerLink="/customers">⚡ SSR Demo</a>
 
-        <a mat-button routerLink="/login">🔑 Login</a>
+        <a mat-button routerLink="/login" *ngIf="!(afAuth.authState | async)">🔑 Login</a>
+        <a
+          mat-raised-button
+          *ngIf="(afAuth.authState | async)"
+          color="basic"
+          (click)="afAuth.signOut()"
+        >Logout</a>
 
       </div>
 
