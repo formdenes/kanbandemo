@@ -38,7 +38,7 @@ export class BoardService {
 
   /**
    * Updates the tasks on a given board
-   * @param boardId The board to be updated
+   * @param boardId The id of the board to be updated
    * @param tasks The new tasks
    */
   updateTasks(boardId: string, tasks: Task[]) {
@@ -83,6 +83,10 @@ export class BoardService {
     )
   }
 
+  /**
+   * Sorts the boards based on priority
+   * @param boards The boards to sort
+   */
   sortBoards(boards: Board[]) {
     const db = firebase.firestore();
     const batch = db.batch();
