@@ -9,12 +9,14 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { BoardListComponent } from './board-list/board-list.component';
 import { BoardComponent } from './board/board.component';
+import { BoardDialogComponent } from './dialogs/board-dialog.component';
 
 
 @NgModule({
   declarations: [
     BoardListComponent,
-    BoardComponent
+    BoardComponent,
+    BoardDialogComponent
   ],
   imports: [
     CommonModule,
