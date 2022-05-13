@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "kanbandemo-6f5a0": {
+      "hosting": {
+        "kanbandemo": [
+          "kanbandemo-6f5a0"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "kanbandemo-6f5a0"
+  }
+}
