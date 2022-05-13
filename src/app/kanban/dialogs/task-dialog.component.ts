@@ -1,20 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MatDialogState, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { BoardService } from '../board.service';
 
 @Component({
   selector: 'app-task-dialog',
+  styleUrls: ['./dialog.scss'],
   template: `
-    <p>
-      task-dialog works!
-    </p>
-  `,
-  styles: [
-  ]
+    <h1 mat-dialog-title></h1>
+    <div mat-dialog-content class="content">
+      <mat-form-field>
+        <textarea placeholder="Task description" matInput [(ngModel)]="data.task.description"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-button-toggle-group #group="matButtonToggleGroup" [(ngModel)]="data.task.label">
+        <mat-button-toggle *ngFor="let opt of labelOptions" [value]="opt">
+          <mat-icon [ngClass]="opt"> {{ opt === 'gray' ? 'check_circle' : 'lens' }} </mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+        {{ data.isNew ? 'Add Task' : 'Update Task' }}
+      </button>
+    </div>
+  `
 })
-export class TaskDialogComponent implements OnInit {
+export class TaskDialogComponent {
 
-  constructor() { }
+  labelOptions = ['purple', 'blue', 'green', 'yellow', 'red', 'gray']
 
-  ngOnInit(): void {
+  constructor(
+    public dialogRef: MatDialogRef<TaskDialogComponent>,
+    private bs: BoardService,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  handleTaskDelete() {
+    this.bs.removeTask(this.data.boadId, this.data.task);
+    this.dialogRef.close();
   }
 
 }
