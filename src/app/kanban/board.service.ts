@@ -47,7 +47,7 @@ export class BoardService {
       .doc(boardId)
       .update({ tasks });
   }
-
+// TODO: check, how to get it to work
   /**
    * Remove a specific task from the board
    * @param boardId The id of the board to remove from
