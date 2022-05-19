@@ -8,12 +8,14 @@ import { JeloltekComponent } from './jeloltek/jeloltek.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { ColumnPickerComponent } from './column-picker/column-picker.component';
 
 
 @NgModule({
   declarations: [
     UploadComponent,
-    JeloltekComponent
+    JeloltekComponent,
+    ColumnPickerComponent
   ],
   imports: [
     CommonModule,
