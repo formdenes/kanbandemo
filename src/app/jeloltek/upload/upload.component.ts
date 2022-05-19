@@ -26,6 +26,8 @@ export class UploadComponent {
   async uploadJeloltek() {
     const fileContent = await this.readFileContent(this.file);
     let json = this.csvToJSON(fileContent);
+    // console.log(json);
+    
     this.jeloltService.addJelolts(json);
   }
 
@@ -59,7 +61,7 @@ export class UploadComponent {
            
       let properties = str.split(';');
       
-      for (let j = 1; j < headers.length; j++ ) obj[headers[j]] = properties[j-1];
+      for (let j = 0; j < headers.length; j++ ) obj[headers[j]] = properties[j];
       
       result.push(obj);
     }

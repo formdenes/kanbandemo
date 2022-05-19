@@ -36,4 +36,8 @@ export class JeloltekComponent implements OnInit, AfterViewInit {
     });
   }
 
+  onColumnsChanged(columns: string[]){
+    this.headers = columns;
+  }
+
 }

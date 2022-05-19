@@ -1,1 +1,5 @@
-<p>column-picker works!</p>
+<div class="picker">
+  <div *ngFor="let title of headers">
+    <mat-checkbox [checked]="getChecked(title)" (change)="setColumn($event.checked, title)" class="column-checkbox">{{title}}</mat-checkbox>
+  </div>
+</div>

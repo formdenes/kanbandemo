@@ -1,3 +1,4 @@
+<app-column-picker (columns)="onColumnsChanged($event)"></app-column-picker>
 <div class="table">
 <mat-table [dataSource]="dataSource" matSort>
   <ng-container matColumnDef="{{title}}" *ngFor="let title of headers">
