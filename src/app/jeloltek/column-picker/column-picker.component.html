@@ -1,5 +1,16 @@
-<div class="picker">
-  <div *ngFor="let title of headers">
-    <mat-checkbox [checked]="getChecked(title)" (change)="setColumn($event.checked, title)" class="column-checkbox">{{title}}</mat-checkbox>
+<div class="column-picker">
+  <mat-form-field appearance="fill">
+    <mat-label>Nézet</mat-label>
+    <mat-select (selectionChange)="onSelectChanged($event.value)">
+      <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="picker">
+    <mat-checkbox
+      *ngFor="let title of headers"
+      [checked]="getChecked(title)"
+      (change)="setColumn($event.checked, title)"
+      class="column-checkbox"
+    >{{title}}</mat-checkbox>
   </div>
 </div>

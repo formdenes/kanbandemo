@@ -8,8 +8,16 @@ import { JeloltClass } from '../jelolt.model';
 })
 export class ColumnPickerComponent {
 
+  options: string[] = ["Elérhetőségek", "Adatok", "Összes"];
+
   headers:string[] = Object.keys(new JeloltClass());
   picked: string[] = Object.keys(new JeloltClass());
+
+  view = {
+    [this.options[0]]: ["Teljes név", "Nem", "Csapatszám", "Csapatnév", "Kerület", "Email", "Facebook"],
+    [this.options[1]]: ["Teljes név", "Nem", "Csapatszám", "Csapatnév", "Kerület", "Születési hely", "Születés év", "Születés hónap", "Születés nap", "Iskola", "Vallás"],
+    [this.options[2]]: [...this.headers]
+  }
 
   @Output() columns = new EventEmitter<string[]>();
   constructor() { }
@@ -27,6 +35,11 @@ export class ColumnPickerComponent {
   getChecked(name:string):boolean {
     if (this.picked.includes(name)) return true;
     return false;
+  }
+
+  onSelectChanged(key: string) {
+    this.picked = this.view[key];
+    this.columns.emit(this.picked);
   }
 
 }
