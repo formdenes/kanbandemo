@@ -5,6 +5,9 @@ import { JeloltekRoutingModule } from './jeloltek-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { UploadComponent } from './upload/upload.component';
 import { JeloltekComponent } from './jeloltek/jeloltek.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -15,7 +18,10 @@ import { JeloltekComponent } from './jeloltek/jeloltek.component';
   imports: [
     CommonModule,
     JeloltekRoutingModule,
-    SharedModule
+    SharedModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ]
 })
 export class JeloltekModule { }
