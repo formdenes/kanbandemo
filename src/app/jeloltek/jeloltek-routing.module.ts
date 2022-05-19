@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UploadComponent } from './upload/upload.component';
+import { JeloltekComponent } from './jeloltek/jeloltek.component';
 
 const routes: Routes = [
-  { path: '', component: UploadComponent }
+  { path: '', component: JeloltekComponent }
 ];
 
 @NgModule({

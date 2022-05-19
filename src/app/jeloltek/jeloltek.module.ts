@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { JeloltekRoutingModule } from './jeloltek-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { UploadComponent } from './upload/upload.component';
+import { JeloltekComponent } from './jeloltek/jeloltek.component';
 
 
 @NgModule({
   declarations: [
-    UploadComponent
+    UploadComponent,
+    JeloltekComponent
   ],
   imports: [
     CommonModule,
