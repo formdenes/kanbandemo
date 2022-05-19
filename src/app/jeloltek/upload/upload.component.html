@@ -1,1 +1,22 @@
-<p>upload works!</p>
+<div class="upload-comp">
+  <mat-card class="upload-card">
+    <input type="file" class="file-input"
+    (change)="onFileSelected($event)" #fileUpload>
+
+    <div class="file-upload">
+
+    {{fileName || "No file uploaded yet."}}
+
+      <button mat-mini-fab color="primary" class="upload-btn"
+      (click)="fileUpload.click()">
+        <mat-icon>attach_file</mat-icon>
+      </button>
+    </div>
+    <button
+      mat-raised-button
+      color="accent"
+      disabled="{{ fileName === '' }}"
+      (click)="uploadJeloltek()"
+      >Upload</button>
+  </mat-card>
+</div>
