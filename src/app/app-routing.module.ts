@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'jeloltek',
-    loadChildren: () => import('./kanban/kanban.module').then(m => m.KanbanModule),
+    loadChildren: () => import('./jeloltek/jeloltek.module').then(m => m.JeloltekModule),
     canActivate: [AuthGuard]
   }
 ];
