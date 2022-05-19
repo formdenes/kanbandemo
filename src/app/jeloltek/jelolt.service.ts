@@ -12,8 +12,16 @@ export class JeloltService {
 
   constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) { }
 
+  /**
+   * Adds Jelolt to db
+   * @param data Jelolt to add
+   */
   async addJelolt(data: Jelolt) {
     const user = await this.afAuth.currentUser;
     return this.db.collection('jeloltek').add({...data})
+  }
+
+  async addJelolts(data: Jelolt[]) {
+    return data.forEach(jelolt => this.addJelolt(jelolt));
   }
 }
