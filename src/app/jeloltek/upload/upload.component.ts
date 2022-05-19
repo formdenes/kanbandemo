@@ -25,9 +25,7 @@ export class UploadComponent {
 
   async uploadJeloltek() {
     const fileContent = await this.readFileContent(this.file);
-    // console.log(fileContent);
     let json = this.csvToJSON(fileContent);
-    console.log(JSON.stringify(json));
     this.jeloltService.addJelolts(json);
   }
 
