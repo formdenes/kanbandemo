@@ -10,13 +10,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ColumnPickerComponent } from './column-picker/column-picker.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FilterDialogComponent } from './dialogs/filter-dialog.component';
 
 
 @NgModule({
   declarations: [
     UploadComponent,
     JeloltekComponent,
-    ColumnPickerComponent
+    ColumnPickerComponent,
+    FilterDialogComponent
   ],
   imports: [
     CommonModule,
