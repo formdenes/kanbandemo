@@ -1,4 +1,14 @@
 <app-column-picker (columns)="onColumnsChanged($event)"></app-column-picker>
+<div class="filters">
+  <button
+    mat-raised-button
+    color="accent"
+    cdkDragDisabled
+    (click)="openBoardDialog()"
+    >
+    Új Filter
+  </button>
+</div>
 <div class="table">
 <mat-table [dataSource]="dataSource" matSort>
   <ng-container matColumnDef="{{title}}" *ngFor="let title of headers">

@@ -9,8 +9,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ColumnPickerComponent } from './column-picker/column-picker.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FilterDialogComponent } from './dialogs/filter-dialog.component';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FilterComponent } from './filter/filter.component';
 
 
 @NgModule({
@@ -18,7 +21,8 @@ import { FilterDialogComponent } from './dialogs/filter-dialog.component';
     UploadComponent,
     JeloltekComponent,
     ColumnPickerComponent,
-    FilterDialogComponent
+    FilterDialogComponent,
+    FilterComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +31,9 @@ import { FilterDialogComponent } from './dialogs/filter-dialog.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    FormsModule,
+    MatDialogModule
   ]
 })
 export class JeloltekModule { }

@@ -4,6 +4,8 @@ import { JeloltService } from '../jelolt.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { FilterDialogComponent } from '../dialogs/filter-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-jeloltek',
@@ -14,6 +16,7 @@ export class JeloltekComponent implements OnInit, AfterViewInit {
 
   jeloltek: any[] = [];
   headers:string[] = Object.keys(new JeloltClass());
+  filters: string[] = [];
   
   dataSource = new MatTableDataSource(this.jeloltek);
 
@@ -24,7 +27,7 @@ export class JeloltekComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator = this.paginator;
   }
 
-  constructor(private jeloltService: JeloltService) { }
+  constructor(private jeloltService: JeloltService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.jeloltService.getJelolts().subscribe(snapshot => {
@@ -38,6 +41,20 @@ export class JeloltekComponent implements OnInit, AfterViewInit {
 
   onColumnsChanged(columns: string[]){
     this.headers = columns;
+  }
+
+  openBoardDialog(): void {
+    const dialogRef = this.dialog.open(FilterDialogComponent, {
+      width: '400px',
+      data: { }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.filters.push(result);
+        console.log(this.filters);
+        
+      }
+    });
   }
 
 }
