@@ -11,7 +11,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { ColumnPickerComponent } from './column-picker/column-picker.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FilterDialogComponent } from './dialogs/filter-dialog.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FilterComponent } from './filter/filter.component';
 
@@ -33,6 +33,7 @@ import { FilterComponent } from './filter/filter.component';
     MatSortModule,
     MatCheckboxModule,
     FormsModule,
+    ReactiveFormsModule,
     MatDialogModule
   ]
 })

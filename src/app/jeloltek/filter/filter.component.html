@@ -1,1 +1,23 @@
-<p>filter works!</p>
+<div class="filters">
+  <button
+    mat-raised-button
+    color="accent"
+    (click)="openBoardDialog(avaibleFiltersList)"
+    >
+    Új Filter
+  </button>
+  <mat-form-field
+    *ngIf="filtersList.length !== 0"
+    appearance="fill"
+    [formGroup]="filters"
+    (ngSubmit)="callingFunction()"
+  >
+    <div *ngFor="let filter of filtersList" class="filter-picker">
+      <mat-label>{{filter}}</mat-label>
+      <mat-select [formControlName]="filter" multiple>
+        <mat-option *ngFor="let options of optionsList[filter]" [value]="options">{{options}}</mat-option>
+      </mat-select>
+    </div>
+    <button  mat-button type="submit">Filter</button>
+  </mat-form-field>
+</div>
