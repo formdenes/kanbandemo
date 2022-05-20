@@ -40,3 +40,8 @@ export class JeloltClass {
 }
 
 export interface Jelolt extends JeloltClass { };
+
+export const viewOptions = [
+  ["Teljes név", "Nem", "Csapatszám", "Csapatnév", "Kerület", "Email", "Facebook"],
+  ["Teljes név", "Nem", "Csapatszám", "Csapatnév", "Kerület", "Születési hely", "Születés év", "Születés hónap", "Születés nap", "Iskola", "Vallás"]
+]

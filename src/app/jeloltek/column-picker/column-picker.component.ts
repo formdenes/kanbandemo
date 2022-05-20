@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { JeloltClass } from '../jelolt.model';
+import { JeloltClass, viewOptions } from '../jelolt.model';
 
 @Component({
   selector: 'app-column-picker',
@@ -14,8 +14,8 @@ export class ColumnPickerComponent {
   picked: string[] = Object.keys(new JeloltClass());
 
   view = {
-    [this.options[0]]: ["Teljes név", "Nem", "Csapatszám", "Csapatnév", "Kerület", "Email", "Facebook"],
-    [this.options[1]]: ["Teljes név", "Nem", "Csapatszám", "Csapatnév", "Kerület", "Születési hely", "Születés év", "Születés hónap", "Születés nap", "Iskola", "Vallás"],
+    [this.options[0]]: viewOptions[0],
+    [this.options[1]]: viewOptions[1],
     [this.options[2]]: [...this.headers]
   }
 
