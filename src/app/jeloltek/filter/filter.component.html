@@ -1,23 +1,25 @@
-<div class="filters">
+<mat-card
+  appearance="fill"
+  [formGroup]="filters"
+  class="filters"
+>
   <button
-    mat-raised-button
-    color="accent"
-    (click)="openBoardDialog(avaibleFiltersList)"
-    >
-    Új Filter
-  </button>
-  <mat-form-field
-    *ngIf="filtersList.length !== 0"
-    appearance="fill"
-    [formGroup]="filters"
-    (ngSubmit)="callingFunction()"
+  mat-raised-button
+  color="accent"
+  (click)="openBoardDialog(avaibleFiltersList)"
   >
-    <div *ngFor="let filter of filtersList" class="filter-picker">
+  Új Filter
+  </button>
+  <div *ngIf="filtersList.length !== 0">
+    <button  mat-button (click)="callingFunction()" >Filter</button>
+    <button mat-button color="warn" (click)="resetFilters()">Reset</button>
+  </div>
+  <div *ngIf="filtersList.length !== 0">
+    <mat-form-field *ngFor="let filter of filtersList" class="filter-picker">
       <mat-label>{{filter}}</mat-label>
       <mat-select [formControlName]="filter" multiple>
         <mat-option *ngFor="let options of optionsList[filter]" [value]="options">{{options}}</mat-option>
       </mat-select>
-    </div>
-    <button  mat-button type="submit">Filter</button>
-  </mat-form-field>
-</div>
+    </mat-form-field>
+  </div>
+</mat-card>

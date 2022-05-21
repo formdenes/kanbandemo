@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output  } from '@angular/core';
 import { FilterDialogComponent } from '../dialogs/filter-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -12,6 +12,7 @@ import { JeloltClass } from '../jelolt.model';
 export class FilterComponent {
 
   @Input() jeloltek?: any[];
+  @Output() appliedFilters = new EventEmitter();
 
   filters = new FormGroup({});
   filtersList: string[] = [];
@@ -36,6 +37,7 @@ export class FilterComponent {
         this.optionsList[result] = this.getFieldsForFilter(result);
         // console.log(this.optionsList);
         this.filters.addControl(result, new FormControl());
+        console.log(this.filters);
         
       }
     });
@@ -54,7 +56,12 @@ export class FilterComponent {
   }
 
   callingFunction() {
-    console.log(this.filters.value);
+    // console.log(this.filters.value);
+    this.appliedFilters.emit(this.filters.value);
+    
+  }
+
+  resetFilters() {
     
   }
 
