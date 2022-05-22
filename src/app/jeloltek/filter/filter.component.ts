@@ -62,6 +62,8 @@ export class FilterComponent {
   }
 
   resetFilters() {
+    this.filters = new FormGroup({});
+    this.filtersList.forEach(filter => this.filters.addControl(filter, new FormControl()))
     
   }
 

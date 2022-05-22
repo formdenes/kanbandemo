@@ -3,16 +3,18 @@
   [formGroup]="filters"
   class="filters"
 >
-  <button
-  mat-raised-button
-  color="accent"
-  (click)="openBoardDialog(avaibleFiltersList)"
-  >
-  Új Filter
-  </button>
-  <div *ngIf="filtersList.length !== 0">
-    <button  mat-button (click)="callingFunction()" >Filter</button>
-    <button mat-button color="warn" (click)="resetFilters()">Reset</button>
+  <div class="button-row">
+    <button
+    mat-raised-button
+    color="accent"
+    (click)="openBoardDialog(avaibleFiltersList)"
+    >
+    Új Filter
+    </button>
+    <div *ngIf="filtersList.length !== 0">
+      <button  mat-button (click)="callingFunction()" >Filter</button>
+      <button mat-button color="warn" (click)="resetFilters()">Reset</button>
+    </div>
   </div>
   <div *ngIf="filtersList.length !== 0">
     <mat-form-field *ngFor="let filter of filtersList" class="filter-picker">
