@@ -4,6 +4,7 @@ import { JeloltService } from '../jelolt.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-jeloltek',
@@ -27,7 +28,11 @@ export class JeloltekComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator = this.paginator;
   }
 
-  constructor(private jeloltService: JeloltService) { }
+  constructor(
+    private jeloltService: JeloltService, 
+    public router: Router,
+    private activatedRoute: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
     this.jeloltService.getJelolts().subscribe(snapshot => {
@@ -50,7 +55,14 @@ export class JeloltekComponent implements OnInit, AfterViewInit {
     this.headers = columns;
   }
   onFiltersChanged(filters: any){
-    console.log(filters);
+    // console.log(filters);
+    const queryParams: Params = { ...filters };
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: queryParams, 
+      queryParamsHandling: 'merge', // remove to replace all query params by provided
+    });
+    console.log(this.router.getCurrentNavigation()?.extractedUrl.queryParams);
     
   }
 
