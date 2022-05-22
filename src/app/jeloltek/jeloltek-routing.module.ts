@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { JeloltComponent } from './jelolt/jelolt.component';
 import { JeloltekComponent } from './jeloltek/jeloltek.component';
 
 const routes: Routes = [
-  { path: '', component: JeloltekComponent }
+  { path: '', component: JeloltekComponent },
+  { path: 'jelolt' , component: JeloltComponent}
 ];
 
 @NgModule({

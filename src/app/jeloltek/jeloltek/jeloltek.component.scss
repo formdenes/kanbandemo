@@ -1,3 +1,8 @@
 .table {
   margin: 20px;
 }
+
+.row-link:hover {
+  background-color: rgba(0, 0, 0, .05);
+  cursor: pointer;
+}

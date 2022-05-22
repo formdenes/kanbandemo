@@ -7,7 +7,11 @@
     <mat-cell *matCellDef="let element">{{element[title]}}</mat-cell>
   </ng-container>
   <mat-header-row *matHeaderRowDef="headers"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: headers;"></mat-row>
+  <mat-row 
+    *matRowDef="let row; columns: headers;"
+    [routerLink]="'jelolt/' + jeloltIds[row[headers[0]]]" 
+    class="row-link"
+  ></mat-row>
 </mat-table>
 <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                  showFirstLastButtons 

@@ -15,6 +15,7 @@ export class JeloltekComponent implements OnInit, AfterViewInit {
   jeloltek: any[] = [];
   headers:string[] = Object.keys(new JeloltClass());
   filters: string[] = [];
+  jeloltIds:any = {};
   
   dataSource = new MatTableDataSource(this.jeloltek);
 
@@ -31,11 +32,18 @@ export class JeloltekComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.jeloltService.getJelolts().subscribe(snapshot => {
       this.jeloltek = [];
-      snapshot.forEach(doc => this.jeloltek.push(doc.data()));
+      snapshot.forEach(doc => {
+        const data: any = doc.data();
+        this.jeloltek.push(data);
+        this.jeloltIds[data[this.headers[0]]] = doc.id;
+      });
       this.dataSource.data = this.jeloltek;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      // console.log(this.jeloltIds);
+      
     });
+    
   }
 
   onColumnsChanged(columns: string[]){

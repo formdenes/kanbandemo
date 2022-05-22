@@ -3,7 +3,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, QuerySnapshot } from '@angular/fire/compat/firestore';
 import firebase from 'firebase/compat/app';
 import { Observable } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
 import { Jelolt } from './jelolt.model';
 // import { getFirestore, collection } from 'firebase/firestore'
 
@@ -30,4 +29,8 @@ export class JeloltService {
   getJelolts(): Observable<firebase.firestore.QuerySnapshot<unknown>> {
     return this.db.collection('jeloltek').get();
   }
+
+  // getJeloltId(name: string) {
+  //   this.db.collection()
+  // }
 }
