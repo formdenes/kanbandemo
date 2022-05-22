@@ -14,6 +14,7 @@ import { FilterDialogComponent } from './dialogs/filter-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FilterComponent } from './filter/filter.component';
+import { JeloltComponent } from './jelolt/jelolt.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FilterComponent } from './filter/filter.component';
     JeloltekComponent,
     ColumnPickerComponent,
     FilterDialogComponent,
-    FilterComponent
+    FilterComponent,
+    JeloltComponent
   ],
   imports: [
     CommonModule,

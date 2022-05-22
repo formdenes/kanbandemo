@@ -22,6 +22,7 @@ export class JeloltekComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort, {static: true }) sort!: MatSort;
 
   ngAfterViewInit(): void {
+    // this.dataSource.filterPredicate = this.createFilter();
       this.dataSource.paginator = this.paginator;
   }
 
