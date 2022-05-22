@@ -1,4 +1,4 @@
-<app-column-picker (columns)="onColumnsChanged($event)"></app-column-picker>
+<app-column-picker (columns)="onColumnsChanged($event)" [initPicked]="headers"></app-column-picker>
 <app-filter (appliedFilters)="onFiltersChanged($event)" [jeloltek]="jeloltek"></app-filter>
 <div class="table">
 <mat-table [dataSource]="dataSource" matSort>

@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: 'jeloltek',
     loadChildren: () => import('./jeloltek/jeloltek.module').then(m => m.JeloltekModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   }
 ];
 

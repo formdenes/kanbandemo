@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { JeloltClass, viewOptions } from '../jelolt.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { JeloltClass, viewOptions } from '../jelolt.model';
   templateUrl: './column-picker.component.html',
   styleUrls: ['./column-picker.component.scss']
 })
-export class ColumnPickerComponent {
+export class ColumnPickerComponent implements OnInit{
 
   options: string[] = ["Elérhetőségek", "Adatok", "Összes"];
 
@@ -19,8 +19,13 @@ export class ColumnPickerComponent {
     [this.options[2]]: [...this.headers]
   }
 
+  @Input() initPicked?: string[];
   @Output() columns = new EventEmitter<string[]>();
   constructor() { }
+
+  ngOnInit(): void {
+    this.picked = this.initPicked || Object.keys(new JeloltClass());
+  }
 
   setColumn(checked: boolean, name: string) {
     if (checked) {

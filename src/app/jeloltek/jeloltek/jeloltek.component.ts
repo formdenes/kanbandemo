@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { JeloltClass } from '../jelolt.model';
 import { JeloltService } from '../jelolt.service';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
@@ -14,7 +14,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 export class JeloltekComponent implements OnInit, AfterViewInit {
 
   jeloltek: any[] = [];
-  headers:string[] = Object.keys(new JeloltClass());
+  headers:string[] =  Object.keys(new JeloltClass());
   filters: string[] = [];
   jeloltIds:any = {};
   
@@ -48,11 +48,23 @@ export class JeloltekComponent implements OnInit, AfterViewInit {
       // console.log(this.jeloltIds);
       
     });
+    // console.log();
+    
+    this.headers = this.activatedRoute.snapshot.queryParamMap.getAll('view') ||  Object.keys(new JeloltClass());
+    // console.log(this.router.getCurrentNavigation());
+    
     
   }
 
   onColumnsChanged(columns: string[]){
     this.headers = columns;
+    // columns.forEach(column => )
+    const queryParams: Params = { 'view': columns}
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: queryParams, 
+      queryParamsHandling: 'merge', // remove to replace all query params by provided
+    });
   }
   onFiltersChanged(filters: any){
     // console.log(filters);
