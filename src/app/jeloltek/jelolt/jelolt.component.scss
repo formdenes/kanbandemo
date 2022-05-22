@@ -1,0 +1,19 @@
+.jelolt-card {
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.jelolt-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.data {
+  display: flex;
+}
+
+.data label {
+  color: #AAA;
+  margin: 5px;
+}

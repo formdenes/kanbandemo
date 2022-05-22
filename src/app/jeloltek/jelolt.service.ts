@@ -30,7 +30,7 @@ export class JeloltService {
     return this.db.collection('jeloltek').get();
   }
 
-  // getJeloltId(name: string) {
-  //   this.db.collection()
-  // }
+  getJeloltById(id:string): Observable<firebase.firestore.DocumentSnapshot<unknown>> {
+    return this.db.collection('jeloltek').doc(id).get();
+  }
 }

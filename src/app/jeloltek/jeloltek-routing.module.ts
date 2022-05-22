@@ -5,7 +5,10 @@ import { JeloltekComponent } from './jeloltek/jeloltek.component';
 
 const routes: Routes = [
   { path: '', component: JeloltekComponent },
-  { path: 'jelolt' , component: JeloltComponent}
+  {
+    path: 'jelolt/:jeloltId',
+    component: JeloltComponent
+  }
 ];
 
 @NgModule({
