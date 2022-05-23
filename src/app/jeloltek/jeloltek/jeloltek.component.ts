@@ -49,9 +49,9 @@ export class JeloltekComponent implements OnInit, AfterViewInit {
       
     });
     // console.log();
-    
-    this.headers = this.activatedRoute.snapshot.queryParamMap.getAll('view') ||  Object.keys(new JeloltClass());
-    // console.log(this.router.getCurrentNavigation());
+    const viewParams = this.activatedRoute.snapshot.queryParamMap.getAll('view');
+    this.headers = viewParams.length === 0 ? Object.keys(new JeloltClass()) : viewParams;
+    // console.log(this.activatedRoute.snapshot.queryParamMap.getAll('view'));
     
     
   }
