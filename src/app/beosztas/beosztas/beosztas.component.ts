@@ -16,7 +16,7 @@ export class BeosztasComponent implements OnInit {
     this.route.params.subscribe(params => {
       // console.log(params['stage']);
       this.stage = params['stage'];
-    })
+    });
   }
 
 }

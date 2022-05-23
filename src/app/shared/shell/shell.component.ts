@@ -34,6 +34,7 @@ export class ShellComponent implements OnInit{
         const data: any = doc.data();
         if (Object.keys(data).indexOf('2022') !== -1){
           this.stages = data['2022'];
+          // console.log(this.stages);
         }
       });
     });

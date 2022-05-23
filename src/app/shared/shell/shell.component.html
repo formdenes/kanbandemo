@@ -40,10 +40,14 @@
 
       <span class="fill-space"></span>
       <div *ngIf="!(isHandset$ | async)">
-        <button mat-button [mat-menu-trigger-for]="beosztasmenu">📋 Beosztasok</button>
+        <button mat-button [mat-menu-trigger-for]="beosztasmenu">📋 Beosztások</button>
         <mat-menu #beosztasmenu="matMenu">
-          <button mat-menu-item routerLink="/beosztas/stages/altábor">Altábor</button>
-          <button mat-menu-item routerLink="/beosztas/stages/I. előhétvége">I. előhétvége</button>
+          <button mat-menu-item routerLink="/beosztas/stages">Stages</button>
+          <button
+            *ngFor="let stage of stages"
+            mat-menu-item
+            [routerLink]="'/beosztas/stages/' + stage"
+          >{{stage.toUpperCase()}}</button>
         </mat-menu>
         <a mat-button routerLink="/kanban">🍱 Kanban Demo</a>
         <a mat-button routerLink="/jeloltek">⚜️ Jelöltek</a>
