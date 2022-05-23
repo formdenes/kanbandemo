@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { BeosztasRoutingModule } from './beosztas-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -10,7 +12,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     BeosztasRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    DragDropModule
   ]
 })
 export class BeosztasModule { }
