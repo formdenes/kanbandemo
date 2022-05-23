@@ -1,0 +1,13 @@
+h1 {
+  text-align: center;
+  font-size: 36em;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 100%;
+}

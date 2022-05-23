@@ -1,1 +1,26 @@
-<h1>{{stage}}</h1>
+<h1>{{stage}}i beosztás</h1>
+<div class="stages" cdkDropListGroup>
+<mat-card [class]="'stage-card ' + value.toLowerCase()" *ngFor="let value of stageValues">
+  <mat-card-header>
+    <ng-content></ng-content>
+    <mat-card-title>  {{ value }}  </mat-card-title>
+  </mat-card-header>
+  <div
+    class="jeloltek"
+    cdkDropList
+    cdkDropListOrientation="vertical"
+    [cdkDropListData]="stageData[value]"
+    (cdkDropListDropped)="jeloltDrop($event)"
+  >
+    <div
+      class="inner-card"
+      
+    >
+      <mat-card
+        cdkDrag
+        *ngFor="let jelolt of stageData[value]"
+      > {{jelolt}}</mat-card>
+    </div>
+  </div>
+</mat-card>
+</div>

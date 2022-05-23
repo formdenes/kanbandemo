@@ -1,0 +1,35 @@
+.stages {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stage-card {
+  margin: 20px;
+  flex-basis: 50px;
+  min-width: 200px;
+}
+
+.omega {
+  background-color: black;
+  color: yellow;
+}
+
+.eger {
+  background-color: royalblue;
+  color: crimson;
+}
+
+.egom {
+  background-color: burlywood;
+  color: black
+}
+
+.puf {
+  background-color: firebrick;
+  color: black;
+}
+
+.falka {
+  background-color: seagreen;
+  color: #fff
+}

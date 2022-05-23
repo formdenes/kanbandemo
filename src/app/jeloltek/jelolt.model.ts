@@ -1,47 +1,47 @@
 export class JeloltClass {
-  'Teljes név'?:string = '';
-  'Nem'?:string = '';
-  'Csapatszám'?:string = '';
-  'Csapatnév'?:string = '';
-  'Kerület'?:string = '';
-  'Email'?:string = '';
-  'Facebook'?:string = '';
-  'Születési hely'?:string = '';
-  'Születés év'?:string = '';
-  'Születés hónap'?:string = '';
-  'Születés nap'?:string = '';
-  'Iskola'?:string = '';
-  'Vallás'?:string = '';
-  'Ételallergia'?:string = '';
-  'EÜ tudnivaló'?:string = '';
-  'Gondviselő név'?:string = '';
-  'Gondviselő telefon'?:string = '';
-  'Gondviselő email'?:string = '';
-  'Lakcím'?:string = '';
-  'ECSET kód'?:string = '';
-  'TAJ szám'?:string = '';
-  'Bizonyítvány'?:string = '';
-  'Pólóméret'?:string = '';
-  'ŐVK összekötő'?:string = '';
-  'ŐVK összekötő email'?:string = '';
-  'ŐVK összekötő telefon'?:string = '';
-  'Cspk'?:string = '';
-  'Cspk email'?:string = '';
-  'Cspk telefon'?:string = '';
-  'Fogadalom éve'?:string = '';
-  'Névnap'?:string = '';
-  'Vezetett korosztály'?:string = '';
-  'Őrs várhatólétszáma'?:string = '';
-  'Tábor'?:string = '';
-  'Becenév'?:string = '';
-  'Altábori kérés'?:string = '';
-  'ŐVK'?:string = '';
-  'Altábor'?:string = '';
+  'teljes név'?:string = '';
+  'nem'?:string = '';
+  'csapatszám'?:string = '';
+  'csapatnév'?:string = '';
+  'kerület'?:string = '';
+  'email'?:string = '';
+  'facebook'?:string = '';
+  'születési hely'?:string = '';
+  'születés év'?:string = '';
+  'születés hónap'?:string = '';
+  'születés nap'?:string = '';
+  'iskola'?:string = '';
+  'vallás'?:string = '';
+  'ételallergia'?:string = '';
+  'eü tudnivaló'?:string = '';
+  'gondviselő név'?:string = '';
+  'gondviselő telefon'?:string = '';
+  'gondviselő email'?:string = '';
+  'lakcím'?:string = '';
+  'ecset kód'?:string = '';
+  'taj szám'?:string = '';
+  'bizonyítvány'?:string = '';
+  'pólóméret'?:string = '';
+  'ővk összekötő'?:string = '';
+  'ővk összekötő email'?:string = '';
+  'ővk összekötő telefon'?:string = '';
+  'cspk'?:string = '';
+  'cspk email'?:string = '';
+  'cspk telefon'?:string = '';
+  'fogadalom éve'?:string = '';
+  'névnap'?:string = '';
+  'vezetett korosztály'?:string = '';
+  'őrs várhatólétszáma'?:string = '';
+  'tábor'?:string = '';
+  'becenév'?:string = '';
+  'altábori kérés'?:string = '';
+  'ővk'?:string = '';
+  'altábor'?:string = '';
 }
 
 export interface Jelolt extends JeloltClass { };
 
 export const viewOptions = [
-  ["Teljes név", "Nem", "Csapatszám", "Csapatnév", "Kerület", "Email", "Facebook"],
-  ["Teljes név", "Nem", "Csapatszám", "Csapatnév", "Kerület", "Születési hely", "Születés év", "Születés hónap", "Születés nap", "Iskola", "Vallás"]
+  ["teljes név", "nem", "csapatszám", "csapatnév", "kerület", "email", "facebook"],
+  ["teljes név", "nem", "csapatszám", "csapatnév", "kerület", "születési hely", "születés év", "születés hónap", "születés nap", "iskola", "vallás"]
 ]

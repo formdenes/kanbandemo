@@ -25,10 +25,16 @@ export class UploadComponent {
 
   async uploadJeloltek() {
     const fileContent = await this.readFileContent(this.file);
+    // console.log(fileContent);
+    
     let json = this.csvToJSON(fileContent);
     // console.log(json);
-    
-    this.jeloltService.addJelolts(json);
+    try{
+      this.jeloltService.addJelolts(json);
+    } catch (err) {
+      console.log(err);
+      
+    }
   }
 
   readFileContent(file?: File): Promise<string> {

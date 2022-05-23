@@ -13,6 +13,6 @@ export class BeosztasService {
 
   getStages(): Observable<firebase.firestore.QuerySnapshot<unknown>>{
     return this.db.collection('stages').get();
-
   }
+
 }
