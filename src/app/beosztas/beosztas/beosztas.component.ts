@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-beosztas',
@@ -10,10 +10,13 @@ export class BeosztasComponent implements OnInit {
 
   stage?: string;
 
-  constructor(public router: Router) { }
+  constructor(public route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.stage = this.router.url.split('?')[0].split('/').pop();
+    this.route.params.subscribe(params => {
+      // console.log(params['stage']);
+      this.stage = params['stage'];
+    })
   }
 
 }

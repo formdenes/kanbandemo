@@ -5,7 +5,7 @@ import { BeosztasComponent } from './beosztas/beosztas.component';
 const routes: Routes = [
   { path: '', component: BeosztasComponent },
   {
-    path: 'Beosztas/:stage',
+    path: 'stages/:stage',
     component: BeosztasComponent
   }];
 
