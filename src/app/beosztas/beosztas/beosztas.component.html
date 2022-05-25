@@ -1,10 +1,18 @@
 <h1>{{stage}}i beosztás</h1>
 <div class="stages" cdkDropListGroup>
-<mat-card [class]="'stage-card ' + value.toLowerCase()" *ngFor="let value of stageValues">
-  <mat-card-header>
-    <ng-content></ng-content>
-    <mat-card-title>  {{ value }}  </mat-card-title>
-  </mat-card-header>
+<mat-expansion-panel
+  [class]="'stage-card ' + value.toLowerCase() + closedClass(value)"
+  *ngFor="let value of stageValues"
+  (closed)="panelClosed(value)"
+  (opened)="panelOpened(value)"
+  expanded="true"
+>
+  <mat-expansion-panel-header>
+    <mat-panel-title>  {{ value }}  </mat-panel-title>
+    <mat-panel-description> {{'Lány: ' + getCount(value, 'lány') + ', ' + getAvarageAge(value, 'lány')}} </mat-panel-description>
+    <mat-panel-description> {{'Fiú: ' + getCount(value, 'fiú') + ', ' + getAvarageAge(value, 'fiú')}} </mat-panel-description>
+    <mat-panel-description> {{'Összesen: ' + getCount(value) + ', ' + getAvarageAge(value)}} </mat-panel-description>
+  </mat-expansion-panel-header>
   <div
     class="jeloltek"
     cdkDropList
@@ -19,8 +27,19 @@
       <mat-card
         cdkDrag
         *ngFor="let jelolt of stageData[value]"
-      > {{jelolt}}</mat-card>
+        class="item"
+      >
+        <mat-card-header>
+          <mat-card-title>{{jelolt[headers[0]]}}</mat-card-title>
+        </mat-card-header>
+      <mat-card-content
+        *ngFor="let type of headers | slice:1; let i = index"
+        class="data-value"
+      >{{jelolt[type]}}</mat-card-content>
+    </mat-card>
     </div>
   </div>
-</mat-card>
+</mat-expansion-panel>
 </div>
+<app-column-picker (columns)="onColumnsChanged($event)" [initPicked]="headers"></app-column-picker>
+<app-filter [jeloltek]="jeloltek"></app-filter>

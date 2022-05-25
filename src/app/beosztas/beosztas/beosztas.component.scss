@@ -1,11 +1,13 @@
 .stages {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .stage-card {
   margin: 20px;
-  flex-basis: 50px;
+  // flex-basis: 50px;
   min-width: 200px;
 }
 
@@ -32,4 +34,30 @@
 .falka {
   background-color: seagreen;
   color: #fff
+}
+
+.szabad {
+  order: -1;
+}
+
+.mat-panel-title {
+  text-transform: capitalize;
+}
+
+.closed-panel {
+  order: 3;
+}
+
+.jeloltek {
+  min-height: 20px;
+}
+
+.item {
+  cursor: -webkit-grab;
+  display: flex;
+  justify-content: space-between;
+}
+
+.data-value {
+  margin: 0 5px;
 }

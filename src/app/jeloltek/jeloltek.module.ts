@@ -37,6 +37,10 @@ import { JeloltComponent } from './jelolt/jelolt.component';
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule
+  ],
+  exports: [
+    ColumnPickerComponent,
+    FilterComponent
   ]
 })
 export class JeloltekModule { }

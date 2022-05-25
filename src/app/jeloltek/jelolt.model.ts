@@ -43,5 +43,6 @@ export interface Jelolt extends JeloltClass { };
 
 export const viewOptions = [
   ["teljes név", "nem", "csapatszám", "csapatnév", "kerület", "email", "facebook"],
-  ["teljes név", "nem", "csapatszám", "csapatnév", "kerület", "születési hely", "születés év", "születés hónap", "születés nap", "iskola", "vallás"]
+  ["teljes név", "nem", "csapatszám", "csapatnév", "kerület", "születési hely", "születés év", "születés hónap", "születés nap", "iskola", "vallás"],
+  ["teljes név", "nem", "csapatszám", "csapatnév", "iskola", "vallás", "altábori kérés"]
 ]

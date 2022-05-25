@@ -8,7 +8,7 @@ import { JeloltClass, viewOptions } from '../jelolt.model';
 })
 export class ColumnPickerComponent implements OnInit{
 
-  options: string[] = ["Elérhetőségek", "Adatok", "Összes"];
+  options: string[] = ["Elérhetőségek", "Adatok", "Beosztás", "Összes"];
 
   headers:string[] = Object.keys(new JeloltClass());
   picked: string[] = Object.keys(new JeloltClass());
@@ -16,7 +16,8 @@ export class ColumnPickerComponent implements OnInit{
   view = {
     [this.options[0]]: viewOptions[0],
     [this.options[1]]: viewOptions[1],
-    [this.options[2]]: [...this.headers]
+    [this.options[2]]: viewOptions[2],
+    [this.options[3]]: [...this.headers]
   }
 
   @Input() initPicked?: string[];
@@ -24,7 +25,11 @@ export class ColumnPickerComponent implements OnInit{
   constructor() { }
 
   ngOnInit(): void {
+    // console.log(this.headers);
+    
     this.picked = this.initPicked || Object.keys(new JeloltClass());
+    // console.log(this.picked);
+    
   }
 
   setColumn(checked: boolean, name: string) {

@@ -15,7 +15,9 @@ export class BeosztasComponent implements OnInit {
   stage?: string;
   stageValues: string[] = [];
   stageData: any = {};
-  headers:string[] =  Object.keys(new JeloltClass());
+  headers:string[] =  ['teljes név'];
+  jeloltek: any[] = [];
+  closed: string[] = [];
 
   constructor(public route: ActivatedRoute, private jeloltService: JeloltService) { }
 
@@ -26,10 +28,13 @@ export class BeosztasComponent implements OnInit {
       this.jeloltService.getJelolts().subscribe(snapshot => {
         this.stageValues = [];
         this.stageData = {};
+        this.jeloltek = [];
         snapshot.forEach(doc => {
           const data: any = doc.data();
-          const stageValue = data[this.stage!];
+          this.jeloltek.push(data);
+          let stageValue = data[this.stage!];
           // console.log(data, this.stage, stageValue);
+          stageValue = stageValue === "" ? "szabad" : stageValue;
           
           if (this.stageValues.indexOf(stageValue) === -1) {
             this.stageValues.push(stageValue);
@@ -38,7 +43,7 @@ export class BeosztasComponent implements OnInit {
             this.stageData[stageValue] = [];
             // console.log(stageValue);
           }
-          this.stageData[stageValue].push(data[this.headers[0]]);
+          this.stageData[stageValue].push(data);
         });
         // console.log(this.stageValues);
         // console.log(this.stageData);
@@ -61,5 +66,40 @@ export class BeosztasComponent implements OnInit {
       );
     }
   }
+
+  panelClosed(name: string) {
+    this.closed.push(name);
+  }
+  panelOpened(name: string) {
+    this.closed.splice(this.closed.indexOf(name), 1);
+  }
+  closedClass(name: string): string {
+    return this.closed.indexOf(name) === -1? '' : ' closed-panel';
+    // console.log('here');
+    
+  }
   
+  onColumnsChanged(columns: string[]){
+    this.headers = columns;
+  }
+
+  getCount(stage: string, gender?: string): number{
+    let filteredJeloltek: any[] = [];
+    stage = stage === 'szabad'? '' : stage;
+    if (gender) filteredJeloltek = this.jeloltek.filter( jelolt => jelolt[this.stage!] === stage && jelolt['nem'].toLowerCase() === gender.toLowerCase());
+    else filteredJeloltek = this.jeloltek.filter( jelolt => jelolt[this.stage!] === stage);
+    // console.log(stage, gender, filterdJeloltek);
+    
+    return filteredJeloltek.length;
+  }
+
+  getAvarageAge(stage: string, gender?: string):number {
+    stage = stage === 'szabad'? '' : stage;
+    let age = 0;
+    let filteredJeloltek = [];
+    if (gender) filteredJeloltek = this.jeloltek.filter( jelolt => jelolt[this.stage!] === stage && jelolt['nem'].toLowerCase() === gender.toLowerCase());
+    else filteredJeloltek = this.jeloltek.filter( jelolt => jelolt[this.stage!] === stage);
+    filteredJeloltek.forEach(jelolt => age += 2022 - parseInt(jelolt['születés év']));
+    return age === 0? 0 : age/filteredJeloltek.length;
+  }
 }
